@@ -147,7 +147,38 @@
   }
 </style>
 </head>
-<body>
+<body class="locked">
+
+<style>
+  /* ===== Verrou d'accès (rideau simple) ===== */
+  body.locked{overflow:hidden}
+  body.locked > *:not(#gate){display:none !important}
+  #gate{position:fixed; inset:0; z-index:9999; background:#232A31; color:#EDF0F2;
+        display:flex; align-items:center; justify-content:center; padding:24px;
+        font-family:"Barlow",system-ui,sans-serif}
+  #gate .box{width:100%; max-width:360px; text-align:center}
+  #gate h1{font-family:"Barlow Condensed","Barlow",sans-serif; font-weight:700;
+           font-size:34px; letter-spacing:.01em; margin:0 0 6px}
+  #gate p{color:#C4CBD2; font-size:15px; line-height:1.5; margin:0 0 22px}
+  #gate input{width:100%; font-size:16px; padding:13px 15px; border-radius:10px;
+              border:1px solid #46515b; background:#1a2026; color:#fff; text-align:center;
+              font-family:inherit; margin-bottom:12px}
+  #gate input:focus{outline:none; border-color:#9BE3C2}
+  #gate button{width:100%; font-size:16px; font-weight:700; font-family:inherit;
+               padding:13px 15px; border-radius:10px; border:none; cursor:pointer;
+               background:#12855F; color:#fff}
+  #gate button:hover{background:#0f6f50}
+  #gate .err{min-height:20px; color:#F3B0A6; font-size:14px; margin-top:12px}
+</style>
+<div id="gate">
+  <div class="box">
+    <h1>Mémo Coach</h1>
+    <p>Cet espace est protégé. Entre le mot de passe pour accéder au mémo.</p>
+    <input id="gate-pass" type="password" placeholder="Mot de passe" autocomplete="off" autofocus>
+    <button id="gate-go" type="button">Entrer</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
 
 <nav><div class="wrap">
   <span class="brand">MÉMO COACH</span>
@@ -1152,5 +1183,31 @@
   Mémo Coach · Musculation — aide-mémoire terrain pour le CQP Instructeur Fitness. Les liens ouvrent des sources externes ; vérifie toujours la licence d'une image avant de la réutiliser.
 </div></footer>
 
+<script>
+(function(){
+  /* ===================================================================== */
+  /*  MOT DE PASSE — remplace MemoCoach par le tien (garde les guillemets)  */
+  var MOT_DE_PASSE = "MemoCoach";
+  /* ===================================================================== */
+  var gate  = document.getElementById('gate');
+  var input = document.getElementById('gate-pass');
+  var btn   = document.getElementById('gate-go');
+  var err   = document.getElementById('gate-err');
+
+  function dejaOuvert(){ try{ return sessionStorage.getItem('memo_ok') === '1'; }catch(e){ return false; } }
+  function ouvrir(){
+    try{ sessionStorage.setItem('memo_ok','1'); }catch(e){}
+    document.body.classList.remove('locked');
+    if(gate){ gate.remove(); }
+  }
+  function tenter(){
+    if(input.value === MOT_DE_PASSE){ ouvrir(); }
+    else { err.textContent = "Mot de passe incorrect."; input.value=''; input.focus(); }
+  }
+  if(dejaOuvert()){ ouvrir(); return; }
+  btn.addEventListener('click', tenter);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ tenter(); } });
+})();
+</script>
 </body>
 </html>
