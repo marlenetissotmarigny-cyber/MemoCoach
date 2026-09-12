@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mémo Coach · Musculation — Acronymes, matériel & exercices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F2F4; --card:#FFFFFF; --card-2:#FAFBFC;
+    --ink:#1C2126; --ink-soft:#586069; --ink-faint:#8A929B;
+    --line:#DCDFE4; --line-soft:#E9EBEE;
+    --steel:#232A31; --steel-2:#333E48;
+    --facile:#12855F; --facile-bg:#E4F3EC;
+    --neutre:#2C63A8; --neutre-bg:#E5EDF7;
+    --difficile:#BE3A2B; --difficile-bg:#F8E7E4;
+    --shadow:0 1px 2px rgba(20,26,32,.06), 0 6px 18px rgba(20,26,32,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Source Serif 4",Georgia,serif; font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:0 20px}
+
+  /* ---- Nav ---- */
+  nav{position:sticky; top:0; z-index:50; background:rgba(35,42,49,.97); backdrop-filter:blur(6px)}
+  nav .wrap{display:flex; gap:4px; align-items:center; overflow-x:auto; padding:10px 20px; scrollbar-width:none}
+  nav .wrap::-webkit-scrollbar{display:none}
+  nav a{
+    font-family:"Barlow",sans-serif; font-weight:600; font-size:13.5px; letter-spacing:.02em;
+    color:#C9D0D7; text-decoration:none; white-space:nowrap; padding:7px 12px; border-radius:7px;
+  }
+  nav a:hover,nav a:focus{color:#fff; background:rgba(255,255,255,.10)}
+  nav .brand{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:16px; color:#fff; margin-right:8px; letter-spacing:.03em}
+
+  /* ---- Hero ---- */
+  header.hero{background:var(--steel); color:#EDF0F2; padding:52px 0 44px}
+  header.hero .kicker{font-family:"Barlow",sans-serif; font-weight:600; font-size:13px; color:#9BE3C2; letter-spacing:.14em; text-transform:uppercase; margin:0 0 14px}
+  header.hero h1{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:clamp(38px,7vw,64px); line-height:.98; letter-spacing:.005em; margin:0 0 18px}
+  header.hero p{font-size:18px; max-width:60ch; color:#C4CBD2; margin:0 0 26px}
+  .quicklinks{display:flex; flex-wrap:wrap; gap:8px}
+  .quicklinks a{
+    font-family:"Barlow",sans-serif; font-weight:600; font-size:14px; text-decoration:none;
+    color:#EDF0F2; border:1px solid rgba(255,255,255,.22); padding:8px 14px; border-radius:999px;
+  }
+  .quicklinks a:hover{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.4)}
+
+  /* ---- Sections ---- */
+  section{padding:46px 0 6px}
+  .sec-head{border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:26px}
+  .sec-head .n{font-family:"Barlow",sans-serif; font-weight:700; font-size:13px; letter-spacing:.12em; color:var(--ink-soft)}
+  .sec-head h2{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:clamp(28px,5vw,42px); line-height:1; margin:6px 0 0}
+  .lead{color:var(--ink-soft); max-width:66ch; margin:0 0 22px}
+  h3.grp{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:26px; letter-spacing:.01em; margin:34px 0 4px; color:var(--ink)}
+  .grp-sub{font-family:"Barlow",sans-serif; font-weight:500; color:var(--ink-faint); font-size:13.5px; margin:0 0 16px; letter-spacing:.02em}
+
+  /* ---- Legend ---- */
+  .legend{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 8px}
+  .pill{font-family:"Barlow",sans-serif; font-weight:600; font-size:13px; padding:4px 11px; border-radius:999px; display:inline-flex; align-items:center; gap:7px}
+  .pill::before{content:""; width:9px; height:9px; border-radius:50%}
+  .pill.f{background:var(--facile-bg); color:var(--facile)} .pill.f::before{background:var(--facile)}
+  .pill.n{background:var(--neutre-bg); color:var(--neutre)} .pill.n::before{background:var(--neutre)}
+  .pill.d{background:var(--difficile-bg); color:var(--difficile)} .pill.d::before{background:var(--difficile)}
+
+  /* ---- Tables ---- */
+  .tbl-card{background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); margin-bottom:22px}
+  .tbl-card h4{font-family:"Barlow",sans-serif; font-weight:700; font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft); margin:0; padding:14px 18px; background:var(--card-2); border-bottom:1px solid var(--line-soft)}
+  table{width:100%; border-collapse:collapse; font-family:"Barlow",sans-serif; font-size:15px}
+  table td{padding:10px 18px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+  table tr:last-child td{border-bottom:none}
+  table td.k{font-weight:700; color:var(--ink); white-space:nowrap; width:90px}
+  table td.m{color:var(--ink-soft)}
+  table tr:hover td{background:#FBFCFD}
+
+  /* ---- Equipment grid ---- */
+  .eq-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; margin-bottom:10px}
+  .eq{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:15px 16px; box-shadow:var(--shadow)}
+  .eq .name{font-family:"Barlow",sans-serif; font-weight:700; font-size:15.5px; color:var(--ink); margin:0 0 5px; line-height:1.25}
+  .eq .en{font-family:"Barlow",sans-serif; font-weight:500; font-size:12.5px; color:var(--ink-faint)}
+  .eq p{font-size:14.5px; line-height:1.5; color:var(--ink-soft); margin:8px 0 0}
+
+  /* ---- Exercise cards ---- */
+  .ex{background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); margin-bottom:20px; overflow:hidden}
+  .ex > summary{list-style:none; cursor:pointer; padding:18px 20px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .ex > summary::-webkit-details-marker{display:none}
+  .ex > summary .exn{font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:23px; color:var(--ink); line-height:1}
+  .ex > summary .tag{font-family:"Barlow",sans-serif; font-weight:600; font-size:12px; color:var(--ink-faint); border:1px solid var(--line); padding:2px 8px; border-radius:6px}
+  .ex > summary .chev{margin-left:auto; color:var(--ink-faint); font-family:"Barlow",sans-serif; font-weight:600; font-size:13px}
+  .ex[open] > summary{border-bottom:1px solid var(--line-soft)}
+  .ex[open] > summary .chev .c-open{display:none}
+  .ex:not([open]) > summary .chev .c-closed{display:none}
+  .ex-body{padding:4px 20px 20px}
+
+  .script{background:#FBF7EF; border-left:3px solid #C99A3B; border-radius:0 8px 8px 0; padding:13px 16px; margin:16px 0; font-style:italic; font-size:16.5px; line-height:1.55; color:#3B3222}
+  .script .lbl{display:block; font-family:"Barlow",sans-serif; font-weight:700; font-style:normal; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:#A9812C; margin-bottom:5px}
+
+  .variants{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:16px 0}
+  .v{border-radius:10px; padding:11px 13px; border:1px solid}
+  .v .vh{font-family:"Barlow",sans-serif; font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; margin:0 0 5px}
+  .v p{margin:0; font-size:14px; line-height:1.45; font-family:"Barlow",sans-serif; color:var(--ink)}
+  .v.f{background:var(--facile-bg); border-color:#BEE3D0} .v.f .vh{color:var(--facile)}
+  .v.n{background:var(--neutre-bg); border-color:#C6D8ED} .v.n .vh{color:var(--neutre)}
+  .v.d{background:var(--difficile-bg); border-color:#EFCDC7} .v.d .vh{color:var(--difficile)}
+
+  .meta{display:grid; grid-template-columns:1fr 1fr; gap:12px 22px; margin-top:14px; font-family:"Barlow",sans-serif}
+  .meta .row{font-size:14.5px; line-height:1.5}
+  .meta .row .l{font-weight:700; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:2px}
+  .meta .row .val{color:var(--ink)}
+  .setup{margin-top:14px; border-top:1px solid var(--line-soft); padding-top:14px; font-family:"Barlow",sans-serif; font-size:14.5px}
+  .setup .l{font-weight:700; color:var(--ink)}
+  .setup ul{margin:6px 0 0; padding-left:18px}
+  .setup li{margin-bottom:4px; color:var(--ink)}
+  .warn{margin-top:12px; font-family:"Barlow",sans-serif; font-size:14px; color:#8a3226; background:#FBEEEC; border-radius:8px; padding:10px 13px}
+  .warn .l{font-weight:700; letter-spacing:.04em}
+
+  /* ---- Sources ---- */
+  .src{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:16px 18px; box-shadow:var(--shadow); margin-bottom:13px}
+  .src a{font-family:"Barlow",sans-serif; font-weight:700; font-size:16px; color:var(--neutre); text-decoration:none}
+  .src a:hover{text-decoration:underline}
+  .src .badge{font-family:"Barlow",sans-serif; font-weight:600; font-size:11.5px; padding:2px 8px; border-radius:5px; margin-left:8px; letter-spacing:.03em}
+  .badge.free{background:var(--facile-bg); color:var(--facile)}
+  .badge.read{background:#EEF0F2; color:var(--ink-soft)}
+  .src p{font-family:"Barlow",sans-serif; font-size:14.5px; color:var(--ink-soft); margin:7px 0 0; line-height:1.5}
+
+  .note{background:#FBF7EF; border:1px solid #EAD9B4; border-radius:11px; padding:15px 18px; font-family:"Barlow",sans-serif; font-size:14.5px; color:#4a3f26; line-height:1.55; margin:20px 0}
+  .note b{color:#3B3222}
+
+  footer{margin-top:40px; padding:30px 0 60px; border-top:1px solid var(--line); font-family:"Barlow",sans-serif; font-size:13.5px; color:var(--ink-faint)}
+  footer .wrap{max-width:940px}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .variants{grid-template-columns:1fr}
+    .meta{grid-template-columns:1fr}
+    header.hero{padding:38px 0 34px}
+  }
+  @media print{
+    nav{display:none} header.hero{background:#fff; color:#000; padding:20px 0}
+    header.hero .kicker{color:#000} header.hero p,.quicklinks{display:none}
+    .ex{break-inside:avoid} .ex-body{display:block!important}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">MÉMO COACH</span>
+  <a href="#acronymes">Acronymes</a>
+  <a href="#materiel">Matériel</a>
+  <a href="#exercices">Exercices</a>
+  <a href="#sources">Sources visuelles</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">Aide-mémoire terrain · CQP Instructeur Fitness</p>
+  <h1>Musculation :<br>le vocabulaire, le matériel<br>et les gestes.</h1>
+  <p>Une référence à garder sur le plateau : les abréviations qu'on entend en salle, le nom exact de chaque appareil, et pour chaque groupe musculaire un exercice détaillé — avec le texte que tu peux dire à voix haute, la mise en place et les trois niveaux de difficulté.</p>
+  <div class="quicklinks">
+    <a href="#acronymes">→ Acronymes</a>
+    <a href="#materiel">→ Matériel & machines</a>
+    <a href="#exercices">→ Exercices par muscle</a>
+    <a href="#sources">→ Visuels fiables</a>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+<!-- =============== ACRONYMES =============== -->
+<section id="acronymes">
+  <div class="sec-head"><span class="n">01</span><h2>Acronymes & abréviations</h2></div>
+  <p class="lead">Ce qu'on entend et lit vraiment en salle française. Beaucoup d'abréviations d'exercices sont françaises (DC, SDT…), celles de programmation et d'intensité sont souvent anglaises mais universelles.</p>
+
+  <div class="tbl-card">
+    <h4>Exercices & mouvements</h4>
+    <table>
+      <tr><td class="k">DC</td><td class="m">Développé couché — bench press (pectoraux, barre allongé)</td></tr>
+      <tr><td class="k">DI</td><td class="m">Développé incliné (banc tête plus haute, haut des pectoraux)</td></tr>
+      <tr><td class="k">DD</td><td class="m">Développé décliné (banc tête plus basse, bas des pectoraux)</td></tr>
+      <tr><td class="k">DM</td><td class="m">Développé militaire — épaules debout à la barre</td></tr>
+      <tr><td class="k">OHP</td><td class="m">Overhead Press — développé au-dessus de la tête (épaules)</td></tr>
+      <tr><td class="k">SDT</td><td class="m">Soulevé de terre — deadlift (chaîne postérieure complète)</td></tr>
+      <tr><td class="k">SDT JT</td><td class="m">Soulevé de terre jambes tendues (ischios / fessiers)</td></tr>
+      <tr><td class="k">RDL</td><td class="m">Romanian Deadlift — soulevé de terre roumain (charnière de hanche)</td></tr>
+      <tr><td class="k">BS / FS</td><td class="m">Back Squat / Front Squat (barre derrière / devant)</td></tr>
+      <tr><td class="k">PDC</td><td class="m">Poids de corps — exercice « au PDC », sans charge externe</td></tr>
+      <tr><td class="k">ISO</td><td class="m">Isométrie — gainage, tenue statique sans mouvement</td></tr>
+      <tr><td class="k">ROM</td><td class="m">Range of Motion — amplitude du mouvement</td></tr>
+    </table>
+  </div>
+
+  <div class="tbl-card">
+    <h4>Matériel & prises</h4>
+    <table>
+      <tr><td class="k">KB</td><td class="m">Kettlebell (poids en forme de boule avec anse)</td></tr>
+      <tr><td class="k">DB</td><td class="m">Dumbbell — haltère (une main)</td></tr>
+      <tr><td class="k">BB</td><td class="m">Barbell — barre (deux mains)</td></tr>
+      <tr><td class="k">EZ</td><td class="m">Barre EZ — barre coudée (curl biceps, ménage les poignets)</td></tr>
+      <tr><td class="k">TRX</td><td class="m">Sangles de suspension (travail au poids de corps)</td></tr>
+      <tr><td class="k">Pronation</td><td class="m">Paume vers le bas / vers l'avant (prise « par-dessus »)</td></tr>
+      <tr><td class="k">Supination</td><td class="m">Paume vers le haut (prise « par-dessous », curl biceps)</td></tr>
+      <tr><td class="k">Neutre</td><td class="m">Prise marteau, paumes face à face</td></tr>
+    </table>
+  </div>
+
+  <div class="tbl-card">
+    <h4>Programmation, intensité & séance</h4>
+    <table>
+      <tr><td class="k">1RM</td><td class="m">Répétition Maximale — charge max soulevée 1 fois. Base du % de charge</td></tr>
+      <tr><td class="k">RM</td><td class="m">Répétition Maximale (5RM = charge tenue 5 reps max)</td></tr>
+      <tr><td class="k">Séries × reps</td><td class="m">Ex. « 4×8 » = 4 séries de 8 répétitions</td></tr>
+      <tr><td class="k">Tempo</td><td class="m">Vitesse en 3–4 chiffres (ex. 3-1-1 : 3 s descente, 1 s pause, 1 s montée)</td></tr>
+      <tr><td class="k">TUT</td><td class="m">Time Under Tension — temps total sous tension musculaire</td></tr>
+      <tr><td class="k">RPE</td><td class="m">Effort perçu, échelle 1–10 (RPE 8 ≈ il restait 2 reps en réserve)</td></tr>
+      <tr><td class="k">RIR</td><td class="m">Reps In Reserve — répétitions qu'il restait avant l'échec</td></tr>
+      <tr><td class="k">SS</td><td class="m">Superset — deux exercices enchaînés sans repos</td></tr>
+      <tr><td class="k">PR / PB</td><td class="m">Personal Record / Best — record personnel</td></tr>
+      <tr><td class="k">PPL</td><td class="m">Push / Pull / Legs — découpage poussée / tirage / jambes</td></tr>
+      <tr><td class="k">Full / Half</td><td class="m">Full-body (tout le corps) / Half-body (haut ou bas)</td></tr>
+      <tr><td class="k">HIIT</td><td class="m">High Intensity Interval Training — fractionné haute intensité</td></tr>
+      <tr><td class="k">DOMS</td><td class="m">Courbatures (douleurs retardées, 24–72 h après l'effort)</td></tr>
+      <tr><td class="k">Concent.</td><td class="m">Concentrique (le muscle se raccourcit) / Excentrique (il s'allonge sous charge)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- =============== MATÉRIEL =============== -->
+<section id="materiel">
+  <div class="sec-head"><span class="n">02</span><h2>Matériel & machines</h2></div>
+  <p class="lead">Le parc type d'un club complet (musculation + wellness). Noms français d'usage, terme anglais courant entre parenthèses, et à quoi ça sert.</p>
+
+  <h3 class="grp">Poids libres</h3>
+  <div class="grp-sub">Charges non guidées — barres, haltères, poids</div>
+  <div class="eq-grid">
+    <div class="eq"><div class="name">Barre olympique <span class="en">(olympic barbell)</span></div><p>Barre droite de référence, Ø 50 mm aux manchons. 20 kg (souvent 15 kg en version « femme »). Pour développé, squat, soulevé de terre, rowing.</p></div>
+    <div class="eq"><div class="name">Barre EZ <span class="en">(EZ / curl bar)</span></div><p>Barre courte et coudée. Les ondulations mettent les poignets en semi-pronation : plus confortable pour curls et extensions triceps.</p></div>
+    <div class="eq"><div class="name">Haltères <span class="en">(dumbbells)</span></div><p>Fixes (rack numéroté) ou réglables. Travail unilatéral, grande liberté d'amplitude et de correction des déséquilibres.</p></div>
+    <div class="eq"><div class="name">Kettlebells <span class="en">(KB)</span></div><p>Poids à anse. Idéal pour swings, goblet squat, portés — travail balistique et fonctionnel, gainage.</p></div>
+    <div class="eq"><div class="name">Disques <span class="en">(plates / bumpers)</span></div><p>Chargés sur la barre (Ø 50 mm). Les « bumpers » en caoutchouc encaissent les poser au sol (haltéro, SDT).</p></div>
+    <div class="eq"><div class="name">Colliers de serrage <span class="en">(collars)</span></div><p>Bloquent les disques sur la barre. À mettre systématiquement — consigne de sécurité de base.</p></div>
+    <div class="eq"><div class="name">Medicine ball / Slam ball</div><p>Ballons lestés. Lancers, rotations, travail de gainage et de puissance ; le slam ball se claque au sol sans rebondir.</p></div>
+  </div>
+
+  <h3 class="grp">Bancs & supports</h3>
+  <div class="grp-sub">Structures d'appui et de sécurité</div>
+  <div class="eq-grid">
+    <div class="eq"><div class="name">Banc plat <span class="en">(flat bench)</span></div><p>Horizontal. Développés, rowing bras tendu, appui pour haltères.</p></div>
+    <div class="eq"><div class="name">Banc inclinable / déclinable <span class="en">(adjustable bench)</span></div><p>Dossier réglable : incliné (haut des pectoraux, épaules) ou décliné (bas des pectoraux, abdos).</p></div>
+    <div class="eq"><div class="name">Cage / rack à squat <span class="en">(power rack)</span></div><p>Structure avec sécurités réglables et repose-barre. Squat, développé et tractions en sécurité — même seule.</p></div>
+    <div class="eq"><div class="name">Banc à lombaires <span class="en">(hyperextension / banc à dos)</span></div><p>Appui incliné pour l'extension du buste : gainage lombaire, ischios, fessiers.</p></div>
+    <div class="eq"><div class="name">Pupitre à biceps <span class="en">(banc Larry Scott)</span></div><p>Pupitre incliné qui cale les bras : curl strict, sans triche du dos.</p></div>
+    <div class="eq"><div class="name">Chaise romaine <span class="en">(dip / captain's chair)</span></div><p>Station verticale pour dips (triceps/pectoraux) et relevés de jambes (abdos).</p></div>
+    <div class="eq"><div class="name">Barre de traction <span class="en">(pull-up bar)</span></div><p>Fixe ou intégrée au rack. Tractions, suspensions, relevés de jambes suspendu.</p></div>
+  </div>
+
+  <h3 class="grp">Machines guidées</h3>
+  <div class="grp-sub">Trajectoire imposée (sélecteur de poids ou chargées en disques) — sécurisantes pour débuter</div>
+  <div class="eq-grid">
+    <div class="eq"><div class="name">Presse à cuisses <span class="en">(leg press)</span></div><p>Poussée jambes assis/incliné 45°. Quadriceps, fessiers, ischios avec dos soutenu — excellente porte d'entrée jambes.</p></div>
+    <div class="eq"><div class="name">Hack squat</div><p>Squat guidé sur rails, dos calé. Quadriceps, très accessible techniquement.</p></div>
+    <div class="eq"><div class="name">Leg extension <span class="en">(extension de jambes)</span></div><p>Isolation des quadriceps, assis. Extension du genou contre boudin.</p></div>
+    <div class="eq"><div class="name">Leg curl <span class="en">(flexion de jambes)</span></div><p>Allongé, assis ou debout. Isolation des ischio-jambiers par flexion du genou.</p></div>
+    <div class="eq"><div class="name">Machine à mollets <span class="en">(calf machine)</span></div><p>Debout (gastrocnémiens) ou assis (soléaire). Extension de la cheville.</p></div>
+    <div class="eq"><div class="name">Adducteurs / Abducteurs</div><p>Assis, jambes qui se ferment (intérieur des cuisses) ou s'ouvrent (fessiers/hanches).</p></div>
+    <div class="eq"><div class="name">Chest press <span class="en">(développé pectoraux)</span></div><p>Poussée horizontale guidée. Pectoraux, épaules, triceps — l'alternative sûre au développé barre.</p></div>
+    <div class="eq"><div class="name">Pec deck / Butterfly <span class="en">(écarté machine)</span></div><p>Isolation des pectoraux par rapprochement des bras devant soi.</p></div>
+    <div class="eq"><div class="name">Épaulières <span class="en">(shoulder press machine)</span></div><p>Développé épaules guidé, dos calé. Deltoïdes en sécurité.</p></div>
+    <div class="eq"><div class="name">Tirage vertical <span class="en">(poulie haute / lat pulldown)</span></div><p>Tirage d'une barre vers la poitrine, assis. Grand dorsal, biceps — la traction « assistée ».</p></div>
+    <div class="eq"><div class="name">Tirage horizontal <span class="en">(rowing assis / low row)</span></div><p>Tirage vers le ventre. Milieu du dos, dorsaux, arrière d'épaule.</p></div>
+    <div class="eq"><div class="name">Smith machine <span class="en">(barre guidée)</span></div><p>Barre sur rails verticaux avec crans de sécurité. Développés et squats guidés.</p></div>
+    <div class="eq"><div class="name">Station de poulies <span class="en">(vis-à-vis / cable crossover)</span></div><p>Deux colonnes réglables. Écartés, tirages, extensions triceps, travail fonctionnel — tension constante à toute hauteur.</p></div>
+    <div class="eq"><div class="name">Machine abdominaux / lombaires</div><p>Crunch guidé (sangle abdominale) ou extension du dos assise.</p></div>
+  </div>
+
+  <h3 class="grp">Cardio</h3>
+  <div class="grp-sub">Échauffement, endurance, dépense</div>
+  <div class="eq-grid">
+    <div class="eq"><div class="name">Tapis de course <span class="en">(treadmill)</span></div><p>Marche/course à vitesse et pente réglables.</p></div>
+    <div class="eq"><div class="name">Vélo droit / allongé <span class="en">(bike / recumbent)</span></div><p>Le vélo allongé (recumbent) soulage le dos — pratique pour un public sénior ou en reprise.</p></div>
+    <div class="eq"><div class="name">Elliptique <span class="en">(cross-trainer)</span></div><p>Mouvement complet sans impact articulaire.</p></div>
+    <div class="eq"><div class="name">Rameur <span class="en">(rower / Concept2)</span></div><p>Cardio complet corps entier, tirage jambes + dos + bras.</p></div>
+    <div class="eq"><div class="name">Escalier / Stairmaster</div><p>Montée de marches continue — fessiers et cardio soutenu.</p></div>
+    <div class="eq"><div class="name">Assault bike <span class="en">(air bike)</span></div><p>Vélo à résistance à air, bras + jambes. Intense, très utilisé en fractionné.</p></div>
+  </div>
+
+  <h3 class="grp">Accessoires & petit matériel</h3>
+  <div class="grp-sub">Assistance, sécurité, travail fonctionnel</div>
+  <div class="eq-grid">
+    <div class="eq"><div class="name">Élastiques <span class="en">(bands / mini-bands)</span></div><p>Résistance variable. Assistance aux tractions, activation, renforcement doux — idéal en progression.</p></div>
+    <div class="eq"><div class="name">TRX <span class="en">(sangles de suspension)</span></div><p>Travail au poids de corps, difficulté réglée par l'angle du corps. Très polyvalent.</p></div>
+    <div class="eq"><div class="name">Ceinture de force <span class="en">(lifting belt)</span></div><p>Augmente la pression abdominale sur les charges lourdes (squat, SDT). Pas un substitut au gainage.</p></div>
+    <div class="eq"><div class="name">Sangles de tirage <span class="en">(straps)</span></div><p>Sécurisent la prise quand les avant-bras lâchent avant le muscle cible (tirages lourds, SDT).</p></div>
+    <div class="eq"><div class="name">Maniques / magnésie</div><p>Protègent les mains et améliorent l'adhérence (magnésie = chalk).</p></div>
+    <div class="eq"><div class="name">Poignées de poulie <span class="en">(barre, corde, poignée D)</span></div><p>S'accrochent aux mousquetons : la corde permet d'écarter en fin de mouvement (triceps, face pull).</p></div>
+    <div class="eq"><div class="name">Foam roller <span class="en">(rouleau)</span></div><p>Auto-massage, échauffement, récupération.</p></div>
+    <div class="eq"><div class="name">Box plyo / Step</div><p>Montées, step-ups, sauts (plyo), surélévation pour fentes bulgares.</p></div>
+    <div class="eq"><div class="name">Swiss ball / Bosu</div><p>Surfaces instables : gainage, proprioception, équilibre.</p></div>
+  </div>
+</section>
+
+<!-- =============== EXERCICES =============== -->
+<section id="exercices">
+  <div class="sec-head"><span class="n">03</span><h2>Exercices par groupe musculaire</h2></div>
+  <p class="lead">Pour chaque muscle, un exercice de référence entièrement détaillé. Clique pour dérouler : tu y trouves le texte à dire au client, la mise en place (appui, prise, départ, fin), les muscles, les précautions — et les trois niveaux.</p>
+  <div class="legend">
+    <span class="pill f">Plus facile — accessible, guidé, régressé</span>
+    <span class="pill n">Neutre — la version de référence</span>
+    <span class="pill d">Plus difficile — progression, charge, instabilité</span>
+  </div>
+
+  <!-- PECTORAUX -->
+  <h3 class="grp">Pectoraux</h3>
+  <details class="ex" open>
+    <summary><span class="exn">Développé couché</span> <span class="tag">DC · bench press</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« On s'allonge, les yeux juste sous la barre. On serre les omoplates ensemble et vers le bas, poitrine sortie, pieds bien ancrés au sol. On descend la barre vers le bas des pectoraux, coudes à environ 45°, on effleure sans rebondir — et on repousse en soufflant. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Chest press guidée ou développé haltères ; pompes sur les genoux ou mains surélevées.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Développé couché à la barre, banc plat, dans le rack avec sécurités.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Développé incliné haltères ; pause 1–2 s au sternum ; pompes lestées.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Banc plat + barre olympique + repose-barre (ou haltères).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Grand pectoral (principal) ; deltoïde antérieur & triceps (secondaires) ; abdos/fessiers gainés.</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> 5 points — tête, haut du dos et fessiers sur le banc, deux pieds à plat au sol. Cambrure lombaire naturelle.</li>
+          <li><b>Saisie :</b> prise pronation un peu plus large que les épaules, poignets dans l'axe des avant-bras, pouce enroulé (jamais de « prise ouverte »).</li>
+          <li><b>Départ :</b> barre déverrouillée au-dessus des épaules, bras tendus, omoplates serrées et abaissées.</li>
+          <li><b>Fin :</b> la barre effleure le bas des pectoraux, puis extension complète sans claquer les coudes.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> pareur conseillé si lourd ; coudes à 45–60°, pas évasés à 90° (épaule) ; fessiers qui restent au banc ; pas de rebond sur la poitrine.</div>
+    </div>
+  </details>
+
+  <!-- DOS -->
+  <h3 class="grp">Dos</h3>
+  <details class="ex">
+    <summary><span class="exn">Tirage vertical</span> <span class="tag">poulie haute · lat pulldown</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Assise, cuisses bien calées sous les boudins. On attrape la barre large, poitrine gonflée. On amène la barre vers le haut des pectoraux en tirant les coudes vers le bas et l'arrière — imagine ranger tes omoplates dans les poches arrière. Puis retour lent, bras tendus, sans lâcher. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Charge légère en prise neutre, ou tirage assis à la poulie ; tractions assistées (machine/élastique).</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Tirage vertical poitrine, prise pronation large, à la poulie haute.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Tractions au poids de corps, puis lestées.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Machine poulie haute + barre large.</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Grand dorsal & grand rond (principal) ; biceps, arrière d'épaule, rhomboïdes (secondaires).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> cuisses sous les cales, pieds à plat, buste incliné en arrière de 10–20°, gainage engagé.</li>
+          <li><b>Saisie :</b> prise pronation large (ou neutre si épaules sensibles), pouces enroulés.</li>
+          <li><b>Départ :</b> bras tendus en haut ; on abaisse d'abord les omoplates, puis on tire.</li>
+          <li><b>Fin :</b> barre au niveau clavicule / haut des pectoraux, coudes le long du corps — jamais derrière la nuque.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> pas de tirage nuque (épaule/cervicales) ; pas d'élan du buste ; retour contrôlé sans relâcher d'un coup.</div>
+    </div>
+  </details>
+
+  <!-- ÉPAULES -->
+  <h3 class="grp">Épaules</h3>
+  <details class="ex">
+    <summary><span class="exn">Développé épaules haltères</span> <span class="tag">DM · shoulder press</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Assise, dos calé contre le dossier, haltères au niveau des oreilles, coudes sous les poignets. On pousse vers le haut sans verrouiller les coudes à fond, les haltères se rapprochent légèrement en haut, puis on redescend lentement au niveau des oreilles. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Machine épaulières guidée, ou élévations latérales légères à la poulie/haltères.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Développé haltères assis, dossier vertical.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Développé militaire debout à la barre (gainage) ; Arnold press.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Haltères + banc à dossier (ou barre + rack, ou machine).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Deltoïdes antérieur & moyen (principal) ; triceps, trapèzes supérieurs (secondaires).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> dossier vertical, pieds ancrés, abdos gainés, pas d'hyper-cambrure lombaire.</li>
+          <li><b>Saisie :</b> prise pronation (ou semi-neutre), poignets droits au-dessus des coudes.</li>
+          <li><b>Départ :</b> haltères à hauteur des oreilles, coudes ~90°.</li>
+          <li><b>Fin :</b> extension quasi complète sans claquer les coudes ; redescente contrôlée à l'oreille.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> gainer pour éviter de creuser le bas du dos (au besoin, faire assis) ; réduire l'amplitude si épaule sensible ; charge progressive.</div>
+    </div>
+  </details>
+
+  <!-- BICEPS -->
+  <h3 class="grp">Biceps</h3>
+  <details class="ex">
+    <summary><span class="exn">Curl haltères</span> <span class="tag">biceps curl</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Debout, gainée, coudes collés au buste. On enroule l'haltère vers l'épaule en tournant légèrement la paume vers le haut, on serre le biceps en haut — puis on redescend lentement, bras presque tendu. Les coudes ne bougent pas d'un millimètre. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Curl assis dossier ou à la poulie (tension constante, moins de triche) ; pupitre Scott.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Curl haltères debout, supination, alterné ou simultané.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Curl incliné (étirement) ; excentrique lent 3–4 s ; curl marteau lourd.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Haltères (ou barre EZ, ou poulie basse).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Biceps brachial (principal) ; brachial antérieur & brachio-radial / avant-bras (secondaires).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> debout gainée ou assise dossier ; coudes fixes le long du corps.</li>
+          <li><b>Saisie :</b> supination (paume vers le haut) pour le biceps ; neutre/marteau pour l'avant-bras.</li>
+          <li><b>Départ :</b> bras tendus, épaules basses et immobiles.</li>
+          <li><b>Fin :</b> contraction haute sans avancer les coudes ; descente complète et contrôlée.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> pas d'élan du dos ou des hanches ; ne pas hyperétendre le coude en bas de façon brusque ; coudes immobiles.</div>
+    </div>
+  </details>
+
+  <!-- TRICEPS -->
+  <h3 class="grp">Triceps</h3>
+  <details class="ex">
+    <summary><span class="exn">Extension à la poulie</span> <span class="tag">pushdown</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Face à la poulie haute, coudes collés au corps. On part coudes fléchis, avant-bras à l'horizontale, et on tend les bras vers le bas en gardant les coudes immobiles. On serre le triceps en bas, puis on remonte lentement sans laisser les coudes s'écarter. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Pushdown léger et guidé (articulation ménagée) ; dips assistés machine.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Extension à la poulie haute, barre ou corde.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Dips aux barres parallèles (PDC puis lestés) ; barre au front ; extension au-dessus de la tête.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Poulie haute + corde ou barre.</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Triceps brachial, ses trois chefs (principal).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> debout, léger buste vers l'avant, pieds stables, gainage.</li>
+          <li><b>Saisie :</b> pronation (barre) ou neutre (corde, qu'on écarte en bas).</li>
+          <li><b>Départ :</b> coudes le long du corps, avant-bras parallèles au sol.</li>
+          <li><b>Fin :</b> extension complète en bas sans verrouiller violemment ; coudes qui restent collés.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> isoler le coude (pas de pompe de l'épaule ni du buste) ; charge raisonnable pour préserver le coude.</div>
+    </div>
+  </details>
+
+  <!-- QUADRICEPS -->
+  <h3 class="grp">Quadriceps</h3>
+  <details class="ex">
+    <summary><span class="exn">Squat</span> <span class="tag">BS · back squat</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Barre calée sur le haut du dos, pieds largeur d'épaules, pointes légèrement ouvertes. On inspire, on gaine le ventre. On s'assoit vers l'arrière en poussant les genoux vers l'extérieur, on descend jusqu'à cuisses parallèles au sol — puis on remonte en poussant fort dans les talons. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Goblet squat (haltère devant) ; squat sur box/chaise pour cadrer la profondeur ; presse à cuisses.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Back squat à la barre, dans le rack avec sécurités.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Front squat (barre devant) ; squat bulgare ; tempo avec pause en bas.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Barre + cage à squat (ou haltère en goblet, ou machine).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Quadriceps (principal) ; fessiers, ischios, adducteurs ; érecteurs du rachis (gainage).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> pieds à plat, poids réparti talon/plante ; genoux alignés avec les pointes de pieds ; dos neutre gainé.</li>
+          <li><b>Saisie / barre :</b> barre sur les trapèzes (high bar), mains fermes, coudes sous la barre.</li>
+          <li><b>Départ :</b> déverrouiller le rack, un ou deux pas en arrière, gainer avant de descendre.</li>
+          <li><b>Fin :</b> remontée complète hanches et genoux, sans hyperextension lombaire en haut.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> talons au sol ; pas de genoux qui rentrent (valgus) ; dos neutre, jamais arrondi ; sécurités du rack réglées à bonne hauteur ; amplitude selon la mobilité.</div>
+    </div>
+  </details>
+
+  <!-- ISCHIOS / FESSIERS -->
+  <h3 class="grp">Ischio-jambiers & fessiers</h3>
+  <div class="grp-sub">Chaîne postérieure</div>
+  <details class="ex">
+    <summary><span class="exn">Soulevé de terre roumain</span> <span class="tag">RDL</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Barre contre les cuisses, genoux légèrement fléchis et qui ne bougent plus. On pousse les fessiers loin vers l'arrière en gardant le dos bien plat — la barre glisse le long des jambes jusqu'à mi-tibia. Tu sens l'étirement derrière les cuisses, puis tu reviens en poussant le bassin vers l'avant, fessiers serrés. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>RDL haltères charge légère et amplitude réduite ; leg curl machine (isolation, très sûr).</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Soulevé de terre roumain à la barre.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>SDT jambes tendues amplitude complète ; RDL sur une jambe (unilatéral).</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Barre (ou haltères).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Ischio-jambiers & fessiers (principal) ; érecteurs du rachis, dos (gainage).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> pieds largeur de hanches, poids sur milieu de pied/talons, dos neutre gainé.</li>
+          <li><b>Saisie :</b> prise pronation (ou mixte si lourd), bras tendus qui servent de crochets.</li>
+          <li><b>Départ :</b> debout, barre contre les cuisses, omoplates serrées.</li>
+          <li><b>Fin :</b> barre à mi-tibia selon la souplesse, sans arrondir le dos ; remontée par extension de hanche, sans hyperextension en haut.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> ne jamais arrondir le bas du dos ; c'est une charnière de hanche, pas un squat (les genoux ne plongent pas vers l'avant) ; charge progressive.</div>
+    </div>
+  </details>
+
+  <!-- MOLLETS -->
+  <h3 class="grp">Mollets</h3>
+  <details class="ex">
+    <summary><span class="exn">Extension mollets debout</span> <span class="tag">calf raise</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Pointes de pieds sur le rebord, talons dans le vide. On monte le plus haut possible sur la pointe des pieds en poussant, petite pause en haut — puis on redescend lentement pour bien étirer le mollet en bas. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Mollets sur un step au poids de corps, une main en appui pour l'équilibre.</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Extension mollets debout à la machine.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Lesté lourd, tempo lent + pause ; version sur une jambe.</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Machine mollets debout (ou presse, ou step + haltère).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Triceps sural : gastrocnémiens (genou tendu) & soléaire (genou fléchi, version assise).</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> avant-pied sur le rebord, corps gainé, genoux tendus (debout).</li>
+          <li><b>Saisie :</b> mains sur les poignées / appui pour la stabilité.</li>
+          <li><b>Départ :</b> talons descendus sous le niveau du rebord (étirement).</li>
+          <li><b>Fin :</b> extension maximale sur la pointe, contraction, puis descente lente et complète.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> amplitude complète mais contrôlée, pas de rebond (tendon d'Achille) ; équilibre bien assuré.</div>
+    </div>
+  </details>
+
+  <!-- ABDOS -->
+  <h3 class="grp">Abdominaux & gainage</h3>
+  <details class="ex">
+    <summary><span class="exn">Gainage ventral</span> <span class="tag">planche · plank</span> <span class="chev"><span class="c-closed">Détails ▾</span><span class="c-open">Replier ▴</span></span></summary>
+    <div class="ex-body">
+      <div class="script"><span class="lbl">À dire au client</span>« Sur les avant-bras, coudes juste sous les épaules, corps aligné de la tête aux talons. On rentre le nombril, on serre les fessiers et les abdos, respiration régulière. On tient sans laisser le bassin s'affaisser ni remonter — c'est la qualité qui compte, pas la durée. »</div>
+      <div class="variants">
+        <div class="v f"><p class="vh">Plus facile</p><p>Planche sur les genoux, ou mains surélevées sur un banc (inclinée).</p></div>
+        <div class="v n"><p class="vh">Neutre</p><p>Planche sur les avant-bras, en appui sur les pointes de pieds.</p></div>
+        <div class="v d"><p class="vh">Plus difficile</p><p>Levers alternés bras/jambe ; planche lestée ; appui instable (bosu).</p></div>
+      </div>
+      <div class="meta">
+        <div class="row"><span class="l">Équipement</span><span class="val">Tapis (poids de corps).</span></div>
+        <div class="row"><span class="l">Muscles</span><span class="val">Transverse & grand droit (sangle abdominale) ; gainage global : lombaires, fessiers, épaules.</span></div>
+      </div>
+      <div class="setup">
+        <span class="l">Mise en place</span>
+        <ul>
+          <li><b>Appui :</b> avant-bras + pointes de pieds ; bassin en légère rétroversion, dos neutre.</li>
+          <li><b>Saisie :</b> mains à plat ou jointes.</li>
+          <li><b>Départ :</b> position déjà alignée, gainage engagé avant de décoller.</li>
+          <li><b>Fin :</b> on tient le temps prévu, puis on repose les genoux au sol en douceur.</li>
+        </ul>
+      </div>
+      <div class="warn"><span class="l">Précautions —</span> pas de creux lombaire (bassin qui tombe) ni de dos rond ; on continue de respirer ; on arrête dès que la position se dégrade.</div>
+    </div>
+  </details>
+</section>
+
+<div class="note">
+  <b>À garder en tête.</b> Ce mémo est une aide-mémoire, pas un substitut à ta formation CQP ni au regard de ton tuteur : la validation d'un placement se fait toujours en direct, sur la personne réelle. Les trois niveaux sont des points de départ — le bon exercice reste celui que le client peut exécuter proprement aujourd'hui.
+</div>
+
+<!-- =============== SOURCES =============== -->
+<section id="sources">
+  <div class="sec-head"><span class="n">04</span><h2>Sources visuelles fiables</h2></div>
+  <p class="lead">Je ne joins pas d'illustration générée : sur un geste technique, un visuel faux induit un mauvais placement. Voici des sources fiables où voir chaque exercice — en distinguant ce que tu peux <b>réutiliser</b> (licence libre) de ce qui est à <b>consulter</b> seulement.</p>
+
+  <div class="src">
+    <a href="https://wger.de/en/exercise/overview/" target="_blank" rel="noopener">wger — base d'exercices open-source</a><span class="badge free">Réutilisable</span>
+    <p>Application libre et communautaire : chaque exercice a une fiche avec muscles ciblés et illustration, sous licence libre (Creative Commons / AGPL). La meilleure source si tu veux des visuels que tu as le droit de réemployer dans tes propres supports.</p>
+  </div>
+  <div class="src">
+    <a href="https://commons.wikimedia.org/wiki/Category:Weight_training_exercises" target="_blank" rel="noopener">Wikimedia Commons — exercices & anatomie</a><span class="badge free">Réutilisable</span>
+    <p>Photos, schémas et planches anatomiques sous licences libres (domaine public ou CC). Cherche aussi « Category:Human muscles » pour les schémas de muscles sollicités. Vérifie la licence exacte affichée sous chaque image avant réemploi.</p>
+  </div>
+  <div class="src">
+    <a href="https://conseilsport.decathlon.fr/lexique-de-la-musculation" target="_blank" rel="noopener">Decathlon Conseil Sport — lexique & fiches</a><span class="badge read">À consulter</span>
+    <p>Fiches d'exercices et lexiques en français, pédagogiques et validés par des coachs. Contenu Decathlon : parfait pour se former et vérifier un terme, à ne pas recopier tel quel.</p>
+  </div>
+  <div class="src">
+    <a href="https://exrx.net/Lists/Directory" target="_blank" rel="noopener">ExRx.net — répertoire d'exercices</a><span class="badge read">À consulter</span>
+    <p>Référence anatomique très complète (en anglais) : pour chaque exercice, muscles moteurs/stabilisateurs et animation du geste. Contenu propriétaire, en consultation.</p>
+  </div>
+  <div class="src">
+    <a href="https://www.kenhub.com/fr" target="_blank" rel="noopener">Kenhub — anatomie musculaire (FR)</a><span class="badge read">À consulter</span>
+    <p>Planches et descriptions anatomiques de qualité, en français, pour réviser les muscles sollicités et leur fonction. Idéal pour ancrer le vocabulaire anatomique du CQP.</p>
+  </div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  Mémo Coach · Musculation — aide-mémoire terrain pour le CQP Instructeur Fitness. Les liens ouvrent des sources externes ; vérifie toujours la licence d'une image avant de la réutiliser.
+</div></footer>
+
+</body>
+</html>
